@@ -1,0 +1,172 @@
+html, body, #sphere {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+    font-weight: 400;
+    overflow: hidden;
+}
+
+#comment_btn {
+    position: fixed;
+    top: 16px;
+    right: 0;
+    height: 32px;
+    width: 132px;
+    padding: 6px 12px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    font-size: 14pt;
+    background-color: rgba(61,61,61,.5);
+    z-index: 11;
+    color: white;
+    fill: white;
+    transition: transform .3s ease-in-out;
+    transform: translateX(110px);
+}
+
+#comment_btn:hover {
+    transform: none;
+    cursor: pointer;
+}
+
+#more {
+    z-index: 100;
+    position: fixed;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 250px;
+    padding: 12px;
+    transition: transform .3s ease-in-out;
+    transform: translateX(274px);
+    background-color: white;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    color: #000000;
+}
+
+#more.opened {
+    transform: none;
+}
+
+.divider {
+    margin: 6px;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+}
+
+.divider.invisible {
+    border-bottom: none;
+}
+
+#comment_section {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.comment_empty {
+    text-align: center;
+    color: #555;
+}
+
+.error {
+    color: red;
+    font-size: 8pt;
+    font-weight: 300;
+    margin-top: 2px;
+    margin-bottom: 6px;
+    display: none;
+}
+
+.error.visible {
+    display: block;
+}
+
+.comment_card {
+    width: 90%;
+    padding: 6px 12px;
+    margin: 6px auto;
+    border-radius: 12px;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+.card_title {
+    font-size: 12pt;
+    font-weight: 400;
+}
+
+.card_text {
+    font-size: 12pt;
+    font-weight: 300;
+    padding-left: 12px;
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 20pt;
+    margin: 0;
+}
+
+input {
+    margin-bottom: 12px;
+    outline: none !important;
+}
+
+#comment-form {
+    align-self: flex-end;
+}
+
+input[type="email"], textarea {
+    padding: 6px 4px;
+    border: none;
+    outline: none;
+    font-size: 10pt;
+    width: 100%;
+    font-weight: 300;
+    border-bottom: 1px solid #555;
+
+    transition: 0.3s;
+}
+input[type="email"].errored, textarea.errored {
+    border-bottom-color: red;
+}
+
+input[type="email"]:focus, textarea:focus {
+    border-bottom-color: #4285F4;
+}
+
+label {
+    display: block;
+    color: #555;
+    font-weight: 300;
+    font-size: 9pt;
+}
+
+input[type="button"] {
+    border: none;
+    border-radius: 12px;
+    font-weight: 300;
+    font-size: 10pt;
+    float: right;
+    margin-right: 0;
+    margin-left: auto;
+
+    width: auto;
+    padding: 8px 24px;
+    background-color: #4285F4;
+    color: white;
+}
+
+input[type="button"]:hover {
+    cursor: pointer;
+}

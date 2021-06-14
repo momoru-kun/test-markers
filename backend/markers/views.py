@@ -6,9 +6,7 @@ from .models import Picture
 class PictureView(View):
 
     def get(self, request, *args, **kwargs):
-        print(Picture)
-        print(Picture.objects)
-        last_picture_id = 1
+        last_picture_id = request.session.get('last_picture')
         new_picture = request.GET.get('id')
 
         picture = None
@@ -25,5 +23,5 @@ class PictureView(View):
             # If old user - restore last picture ID from session storage
             picture = Picture.objects.get(id = last_picture_id)
 
-        print(picture.to_dict())
+        request.session['last_picture'] = picture.id
         return JsonResponse(picture.to_dict())

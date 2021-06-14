@@ -3,7 +3,9 @@ FROM python:latest
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-WORKDIR /
+RUN mkdir /backend
+
+WORKDIR /backend
 
 RUN apt update && apt install -y netcat
 RUN pip install --upgrade pip
@@ -13,4 +15,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-ENTRYPOINT [ "/entrypoint.sh" ]
+ENTRYPOINT [ "/backend/entrypoint.sh" ]

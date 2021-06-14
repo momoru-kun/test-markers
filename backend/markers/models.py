@@ -15,7 +15,7 @@ class Picture(models.Model):
         blank = False
     )
 
-    description = models.CharField(
+    description = models.TextField(
         max_length=511,
         verbose_name = "Описание",
         blank = True, 
@@ -42,11 +42,12 @@ class Marker(models.Model):
         on_delete = models.CASCADE
     )
     
-    to = models.OneToOneField(
+    to = models.ForeignKey(
         to = Picture, 
         verbose_name = 'Направляет на',
         on_delete = models.CASCADE, 
-        related_name = "from_marker"
+        related_name = "from_marker",
+        unique = False
     )
 
     pos_x = models.FloatField(verbose_name = "Координата по X")

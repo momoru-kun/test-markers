@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
+from django.views.generic import TemplateView
 
 from markers.urls import urlpatterns as picture_urls
+from comments.urls import urlpatterns as comment_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('picture/', include(picture_urls))
+    path('picture/', include(picture_urls)),
+    path('comment/', include(comment_urls)),
+    path('', TemplateView.as_view(template_name="index.html")) 
 ]
